@@ -8,6 +8,7 @@ import {
   RiCloseLine,
   RiSearch2Line,
   RiArrowDownSLine,
+  RiDeleteBin6Line
 } from "react-icons/ri";
 import Card from "./components/shared/Card";
 function App() {
@@ -17,6 +18,9 @@ function App() {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  const classBtn =
+    "text-[#ec7c6a]  py-2 px-4 rounded-xl border border-gray-500";
 
   return (
     <div className="bg-[#262837] w-full min-h-screen">
@@ -96,14 +100,94 @@ function App() {
               <span>$2.29</span>
               <p>20 comidas</p>
             </div>
-            <Card img="comida.png" price="2.30" description="plato con comida"/>
-            <Card img="comida.png" price="2.30" description="plato con comida"/>
-            <Card img="comida.png" price="2.30" description="plato con comida"/>
-            <Card img="comida.png" price="2.30" description="plato con comida"/>
-            <Card img="comida.png" price="2.30" description="plato con comida"/>
+            <Card
+              img="comida.png"
+              price="2.30"
+              description="plato con comida"
+            />
+            <Card
+              img="comida.png"
+              price="2.30"
+              description="plato con comida"
+            />
+            <Card
+              img="comida.png"
+              price="2.30"
+              description="plato con comida"
+            />
+            <Card
+              img="comida.png"
+              price="2.30"
+              description="plato con comida"
+            />
+            <Card
+              img="comida.png"
+              price="2.30"
+              description="plato con comida"
+            />
           </div>
         </div>
-        <div className="lg:col-span-2 fixed lg:static right-0">Hola 2</div>
+        <div className="lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1F1D2B] w-full h-full">
+          {/*orders */}
+          <div className="relative pt-16 text-gray-300 p-8">
+            <RiCloseLine className="absolute left-4 top-4 p-3 box-content text-gray-300 bg-[#262837] rounded-full text-xl" />
+            <h1 className="text-2xl my-4">Order #124355</h1>
+            {/* pilss */}
+            <div className="flex flex-wrap items-center gap-4 mb-4">
+              <button className="bg-[#ec7c6a] text-white py-2 px-4 rounded-xl">
+                Diner in
+              </button>
+              <button className={classBtn}>To Go</button>
+              <button className="text-[#ec7c6a]  py-2 px-4 rounded-xl border border-gray-500">
+                Delivery
+              </button>
+            </div>
+            {/* Car */}
+            <div>
+              <div className="grid grid-cols-6 mb-4 p-4">
+                <h5 className="col-span-4">Item</h5>
+                <h5>Qty</h5>
+                <h5>Price</h5>
+              </div>
+              {/* product */}
+              <div className="bg-[#262837] p-4 rounded-xl">
+                <div className="grid grid-cols-6 mb-2">
+                  {/* product description */}
+                  <div className="col-span-4 flex items-center gap-3">
+                    <img
+                      src="comida.png"
+                      alt="comidad"
+                      className="w-10 h-10 object-cover"
+                    />
+                    <div>
+                      <h5 className="text-sm">Spaicy</h5>
+                      <p className="text-xs text-gray-300">$2.38</p>
+                    </div>
+                  </div>
+                  {/* Qty */}
+                  <div>
+                    <span>2</span>
+                  </div>
+                  {/* price */}
+                  <div>
+                    <span>$4.76</span>
+                  </div>
+                </div>
+                {/* Note */}
+                <div className="grid grid-cols-6 items-center gap-2" >
+                  <form className="col-span-5">
+                    <input type="text" className="bg-[#1F1D2B] py-1 px-4 rounded-lg outline-none" placeholder="Order Note" />
+                  </form>
+                  <div className="text-center">
+                    <button className="border border-red-500 p-2 rounded-lg">
+                    <RiDeleteBin6Line className="text-red-500"/>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );
