@@ -1,5 +1,6 @@
 # plantilla_Pagina_Online
 
 Resultado del codigo 
-en el siguiente link
-![image](https://user-images.githubusercontent.com/103093132/214959604-55d4a884-cda8-431b-adbe-20c778d050db.png)
+
+![image](https://user-images.githubusercontent.com/103093132/214960138-42e00ce8-bc80-470e-ae44-2d0852bc3534.png)
+
