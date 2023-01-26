@@ -25,9 +25,6 @@ function App() {
     setShowMenu(false);
   };
 
-  const classBtn =
-    "text-[#ec7c6a]  py-2 px-4 rounded-xl border border-gray-500";
-
   return (
     <div className="bg-[#262837] w-full min-h-screen">
       <Sidebar showMenu={showMenu} />
