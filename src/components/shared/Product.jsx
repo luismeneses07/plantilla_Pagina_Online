@@ -3,7 +3,7 @@ import {
     RiDeleteBin6Line
   } from "react-icons/ri";
 
-const Product = () => {
+const Product = (props) => {
     return (
         <div className="bg-[#262837] p-4 rounded-xl mb-4">
           <div className="grid grid-cols-6 mb-2">
@@ -15,17 +15,17 @@ const Product = () => {
                 className="w-10 h-10 object-cover"
               />
               <div>
-                <h5 className="text-sm">Spaicy</h5>
-                <p className="text-xs text-gray-300">$2.38</p>
+                <h5 className="text-sm">{props.eat}</h5>
+                <p className="text-xs text-gray-300">{props.price}</p>
               </div>
             </div>
             {/* Qty */}
             <div>
-              <span>2</span>
+              <span>{props.inventory}</span>
             </div>
             {/* price */}
             <div>
-              <span>$4.76</span>
+              <span>{props.total}</span>
             </div>
           </div>
           {/* Note */}
