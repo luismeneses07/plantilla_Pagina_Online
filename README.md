@@ -2,5 +2,5 @@
 
 Resultado del codigo 
 
-![image](https://user-images.githubusercontent.com/103093132/214960138-42e00ce8-bc80-470e-ae44-2d0852bc3534.png)
+![image](https://user-images.githubusercontent.com/103093132/214960273-bda7051c-2909-46f1-a123-19a48beb29e9.png)
 
