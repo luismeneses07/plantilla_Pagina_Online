@@ -8,15 +8,22 @@ import {
   RiCloseLine,
   RiSearch2Line,
   RiArrowDownSLine,
-  RiDeleteBin6Line
+  RiDeleteBin6Line,
 } from "react-icons/ri";
 import Card from "./components/shared/Card";
+import Product from "./components/shared/Product";
 function App() {
   const [showMenu, setShowMenu] = useState(false);
   const [showOrden, setShowOrden] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
+    setShowOrden(false);
+  };
+
+  const toggleOrder = () => {
+    setShowOrden(!showOrden);
+    setShowMenu(false);
   };
 
   const classBtn =
@@ -33,15 +40,15 @@ function App() {
         <button className=" p-2">
           <RiAddLine />
         </button>
-        <button className=" p-2">
+        <button className=" p-2" onClick={toggleOrder}>
           <RiPieChartLine />
         </button>
         <button className="text-white p-2" onClick={toggleMenu}>
           {showMenu ? <RiCloseLine /> : <RiMenu3Fill />}
         </button>
       </nav>
-      <main className="lg:pl-32 grid grid-cols-1 lg:grid-cols-8 p-4 pb-20">
-        <div className="lg:col-span-6 md:p-8">
+      <main className="lg:pl-32 grid grid-cols-1 lg:grid-cols-8 pb-20">
+        <div className="lg:col-span-6 md:p-8 p-4">
           <header className="">
             {/* Title and search */}
             <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
@@ -127,18 +134,25 @@ function App() {
             />
           </div>
         </div>
-        <div className="lg:col-span-2 fixed lg:static right-0 top-0 bg-[#1F1D2B] w-full h-full">
+        <div
+          className={`lg:col-span-2 fixed right-0 top-0 bg-[#1F1D2B] w-full h-full lg:w-80 lg:right-0 transition-all rounded-lg ${
+            showOrden ? "right-0" : "-right-full"
+          }`}
+        >
           {/*orders */}
-          <div className="relative pt-16 text-gray-300 p-8">
-            <RiCloseLine className="absolute left-4 top-4 p-3 box-content text-gray-300 bg-[#262837] rounded-full text-xl" />
+          <div className="relative pt-16 lg:pt-2 text-gray-300 p-8 h-full">
+            <RiCloseLine
+              onClick={toggleOrder}
+              className="lg:hidden absolute left-4 top-4 p-3 box-content text-gray-300 bg-[#262837] rounded-full text-xl"
+            />
             <h1 className="text-2xl my-4">Order #124355</h1>
             {/* pilss */}
-            <div className="flex flex-wrap items-center gap-4 mb-4">
-              <button className="bg-[#ec7c6a] text-white py-2 px-4 rounded-xl">
+            <div className="flex flex-wrap items-center gap-4 mb-4 lg:gap-4">
+              <button className="bg-[#ec7c6a] text-white py-2 px-4 rounded-xl lg:px-2">
                 Diner in
               </button>
               <button className={classBtn}>To Go</button>
-              <button className="text-[#ec7c6a]  py-2 px-4 rounded-xl border border-gray-500">
+              <button className="text-[#ec7c6a]  py-2 px-4 rounded-xl border border-gray-500 lg:px-2">
                 Delivery
               </button>
             </div>
@@ -149,41 +163,29 @@ function App() {
                 <h5>Qty</h5>
                 <h5>Price</h5>
               </div>
-              {/* product */}
-              <div className="bg-[#262837] p-4 rounded-xl">
-                <div className="grid grid-cols-6 mb-2">
-                  {/* product description */}
-                  <div className="col-span-4 flex items-center gap-3">
-                    <img
-                      src="comida.png"
-                      alt="comidad"
-                      className="w-10 h-10 object-cover"
-                    />
-                    <div>
-                      <h5 className="text-sm">Spaicy</h5>
-                      <p className="text-xs text-gray-300">$2.38</p>
-                    </div>
-                  </div>
-                  {/* Qty */}
-                  <div>
-                    <span>2</span>
-                  </div>
-                  {/* price */}
-                  <div>
-                    <span>$4.76</span>
-                  </div>
-                </div>
-                {/* Note */}
-                <div className="grid grid-cols-6 items-center gap-2" >
-                  <form className="col-span-5">
-                    <input type="text" className="bg-[#1F1D2B] py-1 px-4 rounded-lg outline-none" placeholder="Order Note" />
-                  </form>
-                  <div className="text-center">
-                    <button className="border border-red-500 p-2 rounded-lg">
-                    <RiDeleteBin6Line className="text-red-500"/>
-                    </button>
-                  </div>
-                </div>
+              {/* Products */}
+              <div className="h-[400px] overflow-y-scroll md:h-[700px] lg:h-[550px]">
+                {/* product */} 
+                <Product/>
+                <Product/>
+                <Product/>
+                <Product/>         
+              </div>
+            </div>
+            {/*sumit paymet*/}
+            <div className="bg-[#262837] absolute w-full bottom-0 left-0 p-4">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-gray-400">Discount</span>
+                <span>$0</span>
+              </div>
+              <div className="flex items-center justify-between mb-6">
+                <span className="text-gray-400">Subtotal</span>
+                <span>$4.76</span>
+              </div>
+              <div>
+                <button className="bg-[#ec7c6a] text-white w-full py-2 px-4 rounded-lg">
+                  Continue to payment
+                </button>
               </div>
             </div>
           </div>
